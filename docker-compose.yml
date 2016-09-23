@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  syslog:
+    image: balabit/syslog-ng
+    volumes:
+      - ./syslog-ng.conf:/etc/syslog-ng/syslog-ng.conf
+  flume:
+    build: ./flume
+    environment:
+      - FLUME_AGENT_NAME=a1
+    expose:
+      - '7777'
+  hadoop:
+    image: sequenceiq/hadoop-docker:2.7.1
