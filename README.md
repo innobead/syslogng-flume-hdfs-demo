@@ -53,3 +53,9 @@ A syslog log aggregation sample, integrate syslog, Flume and HDFS.
 > docker exec syslogngflumehdfs_syslog_1 /bin/bash -c "echo 'hellow world' >> /var/log/input"
 > docker exec syslogngflumehdfs_hadoop_1 /usr/local/hadoop/bin/hadoop fs -cat /tmp/syslog/*
 
+## Notes
+1. Need to copy hadoop common libraries to Flume classpath to make HDFS sink work
+
+> <hadoop distribution>/share/hadoop/common/*.jar including files under libs too
+
+
